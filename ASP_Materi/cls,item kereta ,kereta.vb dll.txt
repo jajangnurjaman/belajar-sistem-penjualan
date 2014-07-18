@@ -1,0 +1,324 @@
+ASP.NET
+
+Atik ariesta
+d3 Unggulan
+atik.ariesta@yahoo.com
+
+perlu diingat
+- HTML, CSS
+- SQL (Database)
+- Visual Basic .NET
+
+Visual Srudio 2008/2010
+
+Hasil Akhir
+Website Belanja Online (Katalog Online)
+
+Materi
+ftp://192.168.5.37
+
+Imports Microsoft.VisualBasic
+
+Imports System.Data.SqlClient
+Imports System.Web.Configuration
+
+Public Class clsPengguna
+    Private FUsername As String
+    Private FNama As String
+    Private FPassword As String
+    Private FNoTelepon As String
+    Private FNoKartu As String
+    Dim StrConn As String
+    Dim MyCn As New SqlConnection
+
+    Public Property PUsername() As String
+        Get
+            Return FUsername
+        End Get
+        Set(ByVal value As String)
+            FUsername = value
+        End Set
+    End Property
+    Public Property PNama() As String
+        Get
+            Return FNama
+        End Get
+        Set(ByVal value As String)
+            FNama = value
+        End Set
+    End Property
+    Public Property PPassword() As String
+        Get
+            Return FPassword
+        End Get
+        Set(ByVal value As String)
+            FPassword = value
+        End Set
+    End Property
+    Public Property PNoTelepon() As String
+        Get
+            Return FNoTelepon
+        End Get
+        Set(ByVal value As String)
+            FNoTelepon = value
+        End Set
+    End Property
+    Public Property PNoKartu() As String
+        Get
+            Return FNoKartu
+        End Get
+        Set(ByVal value As String)
+            FNoKartu = value
+        End Set
+    End Property
+
+    Private Sub Koneksi()
+        StrConn = WebConfigurationManager.ConnectionStrings("CS_0222500366").ConnectionString
+        MyCn = New SqlConnection(StrConn)
+        If MyCn.State <> Data.ConnectionState.Closed Then MyCn.Close()
+        MyCn.Open()
+    End Sub
+
+    Public Function SIMPAN() As Integer
+        Koneksi()
+        Dim MyCmd As New SqlCommand
+        Dim Query As String
+        Dim nilaikembali As Integer
+        Query = "INSERT INTO Pengguna(UserName,Password,Nama,NoTelp,NoKartuKredit) VALUES(@USR,@PWD,@NM,@TLP,@KK)"
+        MyCmd = New SqlCommand(Query, MyCn)
+        MyCmd.CommandType = Data.CommandType.Text
+        MyCmd.Parameters.AddWithValue("USR", FUsername)
+        MyCmd.Parameters.AddWithValue("PWD", FPassword)
+        MyCmd.Parameters.AddWithValue("NM", FNama)
+        MyCmd.Parameters.AddWithValue("TLP", FNoTelepon)
+        MyCmd.Parameters.AddWithValue("KK", FNoKartu)
+        nilaikembali = MyCmd.ExecuteNonQuery()
+        Return nilaikembali
+    End Function
+End Class
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Singular
+Description: A two-column, fixed-width design with a neutral color scheme.
+Version    : 1.0
+Released   : 20121119
+*/
+
+
+* {	padding: 0;
+	margin: 0; }
+a {	color: #FF3867;
+	text-decoration: underline;}
+a:hover {text-decoration: none;}
+body {	font-size: 11.5pt;
+		line-height: 2em;
+		color: #353B3A;
+		background: #D5ECE7 url(../../Gambar/Style/bg.png);
+		letter-spacing: 0.025em; }
+body,input {	font-family: Georgia, serif;}
+p {	text-align: justify;}
+br.clearfix {	clear: both;}
+strong {	color: #455350;}
+h1,h2,h3,h4 {	letter-spacing: -1px;
+				text-transform: uppercase;
+				letter-spacing: 0.25em;
+				font-family: Arial, sans-serif;}
+h2 {	font-size: 1.75em;}
+
+h3{	margin-bottom: 1.5em;
+   	color: #455350;}
+h3 {font-size: 1.25em;}
+h4 {	font-size: 1.25em;}
+p {	margin-bottom: 1.5em;}
+ul {	margin-bottom: 1.5em;}
+ul h4 {	margin-bottom: 0.35em;}
+#content {	padding: 0px 0px 0px 0px;
+	width: 980px;
+	background: #FFF;
+	color: #595959;}
+#header {	position: relative;
+	background: #FCBAA1;
+	width: 910px;
+	color: #000;
+	padding: 35px;
+	height: 105px;}
+#footer {	text-align: center;
+	padding: 0px 0 0px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+	font-size: 0.75em;
+	font-family: Arial, sans-serif;
+	color: #95ADA7;}
+#footer a {	color: #95ADA7;}
+#logo {	line-height: 129px;
+	top: 0;
+	left: 35px;
+	height: 129px;
+	position: absolute;}
+#logo a {	color: #fff;
+	text-decoration: none;
+		text-transform: uppercase;
+	letter-spacing: 0.25em;}
+#logo h1 {	font-size: 3em;}
+#menu {	padding: 0 30px 0 25px;
+	height: 46px;
+	width: 925px;
+	position: absolute;
+	background: #FF3867;
+	margin: 35px 0 0 0;
+	line-height: 46px;
+	bottom: 0;
+	left: 0;
+	font-family: Arial, sans-serif;}
+#menu a {	font-size: 1.25em;
+	letter-spacing: -1px;
+	text-decoration: none;
+	text-decoration: none;
+		text-transform: uppercase;
+	color: #fff;
+	letter-spacing: 0.25em;
+	padding: 5px 5px 5px 10px;
+		-moz-transition: background-color .25s ease-in-out;
+	-webkit-transition: background-color .25s ease-in-out;}
+#menu a:hover {	background: rgba(0,0,0,0.1);}
+#menu ul {	list-style: none;}
+#menu ul li {	display: inline;
+	padding: 0 10px 0 10px;}
+#menu ul li.first {	padding-left: 0;}
+#page {	position: relative;
+	margin: 20px 0 20px 0;
+	padding: 0;
+	width: 980px;}
+#page .section-list {	list-style: none;
+	padding-left: 0;}
+#page .section-list li {	clear: both;
+	padding: 20px 0 20px 0;}
+#page ul {	list-style: none;}
+
+#page ul li {
+	padding: 10px 0 10px 0;
+	border-top: dotted 1px #c7cfcf;
+}
+#page ul li.first {	border-top: 0;}
+#page ul li.last {	border-top: 0;}
+#splash {	width: 960px;
+	position: relative;
+	padding: 10px;
+	background: #FFF;
+	margin: 25px 0 25px 0;
+	height: 230px;}
+#wrapper {	margin: 35px auto 0 auto;
+	width: 980px;
+	position: relative;}
+#wrapper2 {	margin: 35px auto 0 auto;
+	width: 980px;
+	position: relative;}
+
+Imports Microsoft.VisualBasic
+
+Public Class ItemKereta
+
+    Private FKdBrg As String
+    Private FNmBrg As String
+    Private FHrgBrg As Long
+    Private FQty As Integer
+
+    Public Property PKdBrg() As String
+        Get
+            Return FKdBrg
+        End Get
+        Set(ByVal value As String)
+            FKdBrg = value
+        End Set
+    End Property
+
+    Public Property PNmBrg() As String
+        Get
+            Return FNmBrg
+        End Get
+        Set(ByVal value As String)
+            FNmBrg = value
+        End Set
+    End Property
+
+    Public Property PHrgBrg() As Long
+        Get
+            Return FHrgBrg
+        End Get
+        Set(ByVal value As Long)
+            FHrgBrg = value
+        End Set
+    End Property
+
+    Public Property PQty() As Integer
+        Get
+            Return FQty
+        End Get
+        Set(ByVal value As Integer)
+            FQty = value
+        End Set
+    End Property
+
+    Public ReadOnly Property PSubtotal() As Double
+        Get
+            Return FHrgBrg * FQty
+        End Get
+    End Property
+
+    Public Sub New(ByVal PKdBrg As String, ByVal PNmBrg As String, ByVal PHrgBrg As Long, ByVal PQty As Integer)
+        Me.PKdBrg = PKdBrg
+        Me.PNmBrg = PNmBrg
+        Me.PHrgBrg = PHrgBrg
+        Me.PQty = PQty
+    End Sub
+End Class
+
+Imports Microsoft.VisualBasic
+Imports System.Collections.Generic
+Public Class Kereta
+
+    Private PkeretaBelanja As List(Of ItemKereta)
+
+    Public Sub New()
+        PkeretaBelanja = New List(Of ItemKereta)()
+    End Sub
+
+    Public Function GetItems() As List(Of ItemKereta)
+        Return PkeretaBelanja
+    End Function
+
+    Public Sub AddItems(ByVal KdBrg As String, ByVal NmBrg As String, ByVal HrgBrg As Long, ByVal Qty As Integer)
+        Dim barang_ada As Boolean = False
+        For Each item As ItemKereta In PkeretaBelanja
+            If item.PKdBrg = KdBrg Then
+                item.PQty += 1
+                barang_ada = True
+            End If
+        Next
+
+        If Not barang_ada Then
+            Dim item As New ItemKereta(KdBrg, NmBrg, HrgBrg, 1)
+            PkeretaBelanja.Add(item)
+        End If
+    End Sub
+
+    Public Sub UpdateQty(ByVal index As Integer, ByVal Qty As Integer)
+        Dim item As ItemKereta
+        item = PkeretaBelanja(index)
+        item.PQty = Qty
+    End Sub
+
+    Public Sub DeleteItem(ByVal index As Integer)
+        PkeretaBelanja.RemoveAt(index)
+    End Sub
+
+    Public ReadOnly Property Count() As Integer
+        Get
+            Return PkeretaBelanja.Count
+        End Get
+    End Property
+End Class

@@ -1,0 +1,5 @@
+D:\belajar-sistem-penjualan\belajar-sistem-penjualan\bin\belajar-sistem-penjualan.dll
+D:\belajar-sistem-penjualan\belajar-sistem-penjualan\bin\belajar-sistem-penjualan.pdb
+D:\belajar-sistem-penjualan\belajar-sistem-penjualan\obj\Debug\ResolveAssemblyReference.cache
+D:\belajar-sistem-penjualan\belajar-sistem-penjualan\obj\Debug\belajar-sistem-penjualan.dll
+D:\belajar-sistem-penjualan\belajar-sistem-penjualan\obj\Debug\belajar-sistem-penjualan.pdb
